@@ -1,0 +1,394 @@
+// Import reset styles from the SCSS folder
+@import "reset";
+
+// Import font
+@import "font";
+
+// Import scrollbar styles from the SCSS folder
+// @import "scrollbar";
+
+/* Nightmode default */
+:root {
+  --light: hsl(0, 0%, 95%);
+  --grey-1: hsl(0, 0%, 75%);
+  --grey-2: hsl(0, 0%, 50%);
+  --grey-3: hsl(0, 0%, 25%);
+  --grey-4: hsl(0, 0%, 15%);
+  --dark: hsl(0, 0%, 2%);
+}
+
+.day-mode {
+  --light: hsl(0, 0%, 0%);
+  --grey-1: hsl(0, 0%, 15%);
+  --grey-2: hsl(0, 0%, 25%);
+  --grey-3: hsl(0, 0%, 50%);
+  --grey-4: hsl(0, 0%, 75%);
+  --dark: hsl(0, 0%, 95%);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  font-family: "Roboto";
+  color: var(--light);
+  background-color: var(--dark);
+  transition: 0.5s;
+}
+
+// SCROLL BAR
+::-webkit-scrollbar {
+  width: 8px;
+  height: 10px;
+  scrollbar-width: thin;
+  transition: 5s;
+  // background-color: var(--dark);
+}
+
+/* Warna track scrollbar */
+::-webkit-scrollbar-track {
+  transition: 5s;
+  background-color: var(--dark);
+}
+
+/* Warna thumb scrollbar */
+::-webkit-scrollbar-thumb {
+  background-color: var(--light); /* Warna thumb scrollbar */
+  width: 6px; /* Lebar thumb scrollbar */
+  height: 6px;
+  border-right: 2px solid var(--dark); /* Garis pemisah warna atas dan tengah */
+  border-top: 70px solid var(--dark); /* Garis pemisah warna atas dan tengah */
+  border-bottom: 70px solid var(--dark); /* Garis pemisah warna atas dan tengah */
+}
+
+.no-select {
+  user-select: none;
+}
+
+// Show opacity animation
+.show {
+  opacity: 0;
+  &.visible-show {
+    opacity: 1;
+  }
+}
+
+// PAGE LOAD
+#page-load {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: hsl(0, 0%, 75%);
+  z-index: 9999;
+  overflow: hidden;
+  animation: slideUp2 0.4s cubic-bezier(0.5, 0.05, 1, 0.36) forwards 1.2s;
+  .load-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 200px;
+    overflow: hidden;
+    .load {
+      overflow: hidden;
+      height: 200px;
+      animation: slideUp1 0.2s cubic-bezier(0.02, 0.2, 1, 0.08) forwards 0.8s;
+      img {
+        height: 200px;
+      }
+    }
+  }
+}
+
+@keyframes slideUp2 {
+  from {
+    height: 100%; /* Atur tinggi awal */
+  }
+  to {
+    height: 0%; /* Atur tinggi akhir */
+  }
+}
+@keyframes slideUp1 {
+  from {
+    height: 200px; /* Atur tinggi awal */
+  }
+  to {
+    height: 0; /* Atur tinggi akhir */
+  }
+}
+
+// NAVBAR
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 70px;
+  padding: 0 80px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: top 0.5s, color 5s, opacity 1s ease;
+  font-family: "Roboto Mono", monospace;
+
+  .brand {
+    text-decoration: none;
+    font-size: 1.4em;
+    span:first-child,
+    span:last-child {
+      color: var(--grey-2);
+    }
+    span:nth-child(2) {
+      color: var(--light);
+    }
+    span:nth-child(3) {
+      color: var(--grey-3);
+    }
+    span {
+      transition: color 0.5s;
+    }
+  }
+  .brand:hover span {
+    color: var(--light);
+  }
+
+  ul {
+    display: flex;
+    width: 422px;
+    justify-content: left;
+    align-items: center;
+    flex-shrink: 0;
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 0;
+    font-size: 1.1em;
+
+    li .bracket {
+      // font-weight: 600;
+      color: var(--light);
+    }
+
+    li:first-child {
+      margin-right: 16px;
+    }
+
+    li:last-child {
+      margin-left: 16px;
+    }
+
+    li .comma {
+      color: var(--grey-3);
+      font-family: "Manrope", sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-inline: 16px;
+    }
+
+    li a {
+      position: relative;
+      text-decoration: none;
+      color: var(--light);
+      transition: color 0.3s;
+      font-size: 1rem;
+
+      &::before,
+      &::after {
+        content: "'";
+        position: absolute;
+        top: -2px;
+        color: var(--grey-3);
+        font-weight: 600;
+      }
+
+      &::before {
+        left: -10px;
+      }
+
+      &::after {
+        right: -10px;
+      }
+
+      &:hover {
+        color: var(--light);
+      }
+    }
+    li .theme-mode {
+      cursor: pointer;
+    }
+  }
+  ul:hover a:not(:hover) {
+    color: var(--grey-3);
+  }
+}
+
+section {
+  min-height: 100vh;
+  padding: 20px 80px;
+  background-color: var(--dark);
+  color: var(--light);
+  transition: background-color 5s, color 5s;
+  font-family: "Titillium Web", sans-serif;
+}
+
+// HOME
+// Showup animation
+.show-up-wrapper {
+  display: inline-block;
+  .show-up {
+    display: flex;
+    overflow: hidden;
+    span {
+      display: block;
+      transform: translate(0, 100%);
+      transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
+    }
+    &.visible-show-up span {
+      transform: translate(0, 0);
+    }
+    & span:nth-child(2) {
+      transition-delay: 0.06s;
+    }
+    & span:nth-child(3) {
+      transition-delay: 0.12s;
+    }
+    & span:nth-child(4) {
+      transition-delay: 0.18s;
+    }
+    & span:nth-child(5) {
+      transition-delay: 0.24s;
+    }
+    & span:nth-child(6) {
+      transition-delay: 0.28s;
+    }
+  }
+}
+
+// Scale animation
+.scale {
+  transform: scale(3);
+  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
+  &.visible-scale {
+    transform: scale(1);
+  }
+}
+
+.parallax {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+
+  .left {
+    position: absolute;
+    width: 45%;
+    height: 50%;
+    top: 25%;
+    left: 10%;
+    text-align: right;
+    z-index: 1;
+    .moto {
+      display: flex;
+      position: absolute;
+      flex-direction: column;
+      right: 50px;
+      bottom: 90px;
+      font-size: 2rem;
+      z-index: 2;
+      color: var(--light);
+      // background-color: rebeccapurple;
+    }
+    .social-link {
+      display: flex;
+      position: absolute;
+      flex-direction: column;
+      width: 175px;
+      right: 50px;
+      bottom: 16px;
+      font-size: 1.2rem;
+      gap: 0.4rem;
+      z-index: 2;
+      .group-link {
+        display: flex;
+        justify-content: flex-end;
+        gap: 1.2rem;
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 24px;
+          overflow: hidden;
+          height: 24px;
+          font-size: 0.8rem;
+          font-weight: 700;
+          border-radius: 12px;
+          color: var(--dark);
+          background-color: var(--light);
+          .text-hidden {
+            display: none;
+            position: relative;
+          }
+
+          &:nth-child(1) {
+            transition: width 0.8s;
+          }
+          &:nth-child(2) {
+            transition: width 1s;
+          }
+          &:nth-child(3) {
+            transition: width 0.2s;
+          }
+          &:nth-child(1):hover {
+            width: calc(40px + 1rem);
+          }
+          &:nth-child(2):hover {
+            width: calc(67.6px + 1rem);
+          }
+          &:nth-child(3):hover {
+            width: calc(35.5px + 1rem);
+          }
+        }
+      }
+    }
+    .am-image {
+      max-width: 50%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 1;
+      svg {
+        width: 100%;
+        height: auto;
+        /* Menjaga agar SVG tidak melebar atau menyempit secara tidak proporsional */
+        display: block;
+        #am-path {
+          height: 100%;
+          fill: var(--grey-4);
+        }
+      }
+    }
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 35%;
+    height: 50%;
+    top: 25%;
+    right: 10%;
+    padding-left: 1rem;
+    padding-top: 20px;
+    text-align: left;
+    z-index: 1;
+    font-size: 3rem;
+    line-height: 0.8;
+  }
+}

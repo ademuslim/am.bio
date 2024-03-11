@@ -1,0 +1,418 @@
+/* Lightweight CSS Reset */
+/* Normalize box-sizing */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Remove margin and padding from most elements */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles (bullet points) */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove default styles for blockquote */
+blockquote {
+  quotes: none;
+}
+
+/* Prevent text-decoration on links */
+a {
+  text-decoration: none;
+}
+
+/* Set default font size and line-height */
+body {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Nightmode default */
+:root {
+  --light: hsl(0, 0%, 95%);
+  --grey-1: hsl(0, 0%, 75%);
+  --grey-2: hsl(0, 0%, 50%);
+  --grey-3: hsl(0, 0%, 25%);
+  --grey-4: hsl(0, 0%, 15%);
+  --dark: hsl(0, 0%, 2%);
+}
+
+.day-mode {
+  --light: hsl(0, 0%, 0%);
+  --grey-1: hsl(0, 0%, 15%);
+  --grey-2: hsl(0, 0%, 25%);
+  --grey-3: hsl(0, 0%, 50%);
+  --grey-4: hsl(0, 0%, 75%);
+  --dark: hsl(0, 0%, 95%);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 70px;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  font-family: "Roboto";
+  color: var(--light);
+  background-color: var(--dark);
+  transition: 0.5s;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 10px;
+  scrollbar-width: thin;
+  -webkit-transition: 5s;
+  transition: 5s;
+}
+
+/* Warna track scrollbar */
+::-webkit-scrollbar-track {
+  -webkit-transition: 5s;
+  transition: 5s;
+  background-color: var(--dark);
+}
+
+/* Warna thumb scrollbar */
+::-webkit-scrollbar-thumb {
+  background-color: var(--light); /* Warna thumb scrollbar */
+  width: 6px; /* Lebar thumb scrollbar */
+  height: 6px;
+  border-right: 2px solid var(--dark); /* Garis pemisah warna atas dan tengah */
+  border-top: 70px solid var(--dark); /* Garis pemisah warna atas dan tengah */
+  border-bottom: 70px solid var(--dark); /* Garis pemisah warna atas dan tengah */
+}
+
+.no-select {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+
+.show {
+  opacity: 0;
+}
+.show.visible-show {
+  opacity: 1;
+}
+
+#page-load {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: hsl(0, 0%, 75%);
+  z-index: 9999;
+  overflow: hidden;
+  animation: slideUp2 0.4s cubic-bezier(0.5, 0.05, 1, 0.36) forwards 1.2s;
+}
+#page-load .load-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 200px;
+  overflow: hidden;
+}
+#page-load .load-wrapper .load {
+  overflow: hidden;
+  height: 200px;
+  animation: slideUp1 0.2s cubic-bezier(0.02, 0.2, 1, 0.08) forwards 0.8s;
+}
+#page-load .load-wrapper .load img {
+  height: 200px;
+}
+
+@keyframes slideUp2 {
+  from {
+    height: 100%; /* Atur tinggi awal */
+  }
+  to {
+    height: 0%; /* Atur tinggi akhir */
+  }
+}
+@keyframes slideUp1 {
+  from {
+    height: 200px; /* Atur tinggi awal */
+  }
+  to {
+    height: 0; /* Atur tinggi akhir */
+  }
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 70px;
+  padding: 0 80px;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: top 0.5s, color 5s, opacity 1s ease;
+  font-family: "Roboto Mono", monospace;
+}
+nav .brand {
+  text-decoration: none;
+  font-size: 1.4em;
+}
+nav .brand span:first-child,
+nav .brand span:last-child {
+  color: var(--grey-2);
+}
+nav .brand span:nth-child(2) {
+  color: var(--light);
+}
+nav .brand span:nth-child(3) {
+  color: var(--grey-3);
+}
+nav .brand span {
+  transition: color 0.5s;
+}
+nav .brand:hover span {
+  color: var(--light);
+}
+nav ul {
+  display: flex;
+  width: 422px;
+  justify-content: left;
+  align-items: center;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  margin: 0;
+  padding: 0;
+  font-size: 1.1em;
+}
+nav ul li .bracket {
+  color: var(--light);
+}
+nav ul li:first-child {
+  margin-right: 16px;
+}
+nav ul li:last-child {
+  margin-left: 16px;
+}
+nav ul li .comma {
+  color: var(--grey-3);
+  font-family: "Manrope", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-inline: 16px;
+}
+nav ul li a {
+  position: relative;
+  text-decoration: none;
+  color: var(--light);
+  transition: color 0.3s;
+  font-size: 1rem;
+}
+nav ul li a::before, nav ul li a::after {
+  content: "'";
+  position: absolute;
+  top: -2px;
+  color: var(--grey-3);
+  font-weight: 600;
+}
+nav ul li a::before {
+  left: -10px;
+}
+nav ul li a::after {
+  right: -10px;
+}
+nav ul li a:hover {
+  color: var(--light);
+}
+nav ul li .theme-mode {
+  cursor: pointer;
+}
+nav ul:hover a:not(:hover) {
+  color: var(--grey-3);
+}
+
+section {
+  min-height: 100vh;
+  padding: 20px 80px;
+  background-color: var(--dark);
+  color: var(--light);
+  transition: background-color 5s, color 5s;
+  font-family: "Titillium Web", sans-serif;
+}
+
+.show-up-wrapper {
+  display: inline-block;
+}
+.show-up-wrapper .show-up {
+  display: flex;
+  overflow: hidden;
+}
+.show-up-wrapper .show-up span {
+  display: block;
+  transform: translate(0, 100%);
+  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
+}
+.show-up-wrapper .show-up.visible-show-up span {
+  transform: translate(0, 0);
+}
+.show-up-wrapper .show-up span:nth-child(2) {
+  transition-delay: 0.06s;
+}
+.show-up-wrapper .show-up span:nth-child(3) {
+  transition-delay: 0.12s;
+}
+.show-up-wrapper .show-up span:nth-child(4) {
+  transition-delay: 0.18s;
+}
+.show-up-wrapper .show-up span:nth-child(5) {
+  transition-delay: 0.24s;
+}
+.show-up-wrapper .show-up span:nth-child(6) {
+  transition-delay: 0.28s;
+}
+
+.scale {
+  transform: scale(3);
+  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
+}
+.scale.visible-scale {
+  transform: scale(1);
+}
+
+.parallax {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+}
+.parallax .left {
+  position: absolute;
+  width: 45%;
+  height: 50%;
+  top: 25%;
+  left: 10%;
+  text-align: right;
+  z-index: 1;
+}
+.parallax .left .moto {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  right: 50px;
+  bottom: 90px;
+  font-size: 2rem;
+  z-index: 2;
+  color: var(--light);
+}
+.parallax .left .social-link {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  width: 175px;
+  right: 50px;
+  bottom: 16px;
+  font-size: 1.2rem;
+  gap: 0.4rem;
+  z-index: 2;
+}
+.parallax .left .social-link .group-link {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.2rem;
+}
+.parallax .left .social-link .group-link a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  overflow: hidden;
+  height: 24px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 12px;
+  color: var(--dark);
+  background-color: var(--light);
+}
+.parallax .left .social-link .group-link a .text-hidden {
+  display: none;
+  position: relative;
+}
+.parallax .left .social-link .group-link a:nth-child(1) {
+  transition: width 0.8s;
+}
+.parallax .left .social-link .group-link a:nth-child(2) {
+  transition: width 1s;
+}
+.parallax .left .social-link .group-link a:nth-child(3) {
+  transition: width 0.2s;
+}
+.parallax .left .social-link .group-link a:nth-child(1):hover {
+  width: calc(40px + 1rem);
+}
+.parallax .left .social-link .group-link a:nth-child(2):hover {
+  width: calc(67.6px + 1rem);
+}
+.parallax .left .social-link .group-link a:nth-child(3):hover {
+  width: calc(35.5px + 1rem);
+}
+.parallax .left .am-image {
+  max-width: 50%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+.parallax .left .am-image svg {
+  width: 100%;
+  height: auto;
+  /* Menjaga agar SVG tidak melebar atau menyempit secara tidak proporsional */
+  display: block;
+}
+.parallax .left .am-image svg #am-path {
+  height: 100%;
+  fill: var(--grey-4);
+}
+.parallax .right {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 35%;
+  height: 50%;
+  top: 25%;
+  right: 10%;
+  padding-left: 1rem;
+  padding-top: 20px;
+  text-align: left;
+  z-index: 1;
+  font-size: 3rem;
+  line-height: 0.8;
+}/*# sourceMappingURL=style.css.map */

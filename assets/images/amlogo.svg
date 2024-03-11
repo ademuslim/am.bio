@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="65.660072mm"
+   height="63.893982mm"
+   viewBox="0 0 65.660072 63.893982"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (0e150ed6c4, 2023-07-21)"
+   sodipodi:docname="am logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.73851717"
+     inkscape:cx="9633.493"
+     inkscape:cy="-581.57077"
+     inkscape:window-width="1920"
+     inkscape:window-height="1046"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-2545.577,123.17533)">
+    <path
+       id="path54"
+       style="fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.950987"
+       d="m 2566.3391,-123.17533 -0.052,0.15519 -9.2919,28.597026 h -2.076 v 6.38955 l -9.3422,28.752212 h 6.7182 l 9.3422,-28.752212 h 10.7263 v 28.752212 h 5.6972 6.7184 l 20.0684,-61.764308 v 61.764308 h 6.3894 v -63.893978 h -5.6974 -6.7183 l -0.052,0.15519 -20.0182,61.609396 v -26.62282 h 2.13 v -6.38955 h -2.13 v -28.752216 h -5.6972 z m 6.026,2.12967 v 26.622546 h -8.6502 z"
+       inkscape:export-filename="..\..\amcode\amportfolio\assets\images\amlogo-favicon.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+  </g>
+</svg>

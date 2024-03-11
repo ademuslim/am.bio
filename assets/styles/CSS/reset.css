@@ -1,0 +1,52 @@
+/* Lightweight CSS Reset */
+/* Normalize box-sizing */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Remove margin and padding from most elements */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove list styles (bullet points) */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove default styles for blockquote */
+blockquote {
+  quotes: none;
+}
+
+/* Prevent text-decoration on links */
+a {
+  text-decoration: none;
+}
+
+/* Set default font size and line-height */
+body {
+  font-size: 16px;
+  line-height: 1.5;
+}/*# sourceMappingURL=reset.css.map */
